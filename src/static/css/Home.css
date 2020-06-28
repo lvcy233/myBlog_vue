@@ -1,0 +1,28 @@
+body{
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+.home {
+  justify-content: center;
+  /* position: fixed; */
+  width: 100%;
+  font-size: 16px;
+}
+.center {
+  margin: 0 auto;
+}
+.leftDiv {
+  float: left;
+  margin-left: 10%;
+  padding: 0px 5px;
+}
+.rightDiv {
+  float: right;
+  margin-right: 10%;
+  padding: 0px 5px;
+}
+.top70{
+  top: 70px;
+}
+.homeCard {
+  height: 200px;
+}
