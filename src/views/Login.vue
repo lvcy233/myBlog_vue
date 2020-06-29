@@ -22,6 +22,12 @@
         </TabPane>
         <TabPane label="注册" name="name2">
           <Input
+            icon="ios-happy"
+            v-model="name"
+            placeholder="昵称"
+            style="width: 200px"
+          />
+          <Input
             icon="md-person"
             v-model="signInUsername"
             placeholder="用户名"
@@ -53,17 +59,23 @@ export default {
       signInUsername: "",
       signInPassword: "",
       signUpUsername: "",
-      signUpPassword: ""
+      signUpPassword: "",
+      name: ""
     };
   },
   methods: {
     signIn() {
       var params = {
         username: this.signInUsername,
-        password: this.signInPassword
+        password: this.signInPassword,
+        name: this.name
       };
       userApi.signIn(params).then(res => {
-        console.log(res.data);
+        if (res.data.code == 200) {
+          this.$Message.success(res.data.msg);
+        } else {
+          this.$Message.error(res.data.msg);
+        }
       });
     },
     signUp() {
@@ -81,11 +93,6 @@ export default {
         }
       });
     }
-  },
-  mounted() {
-    userApi.getAll().then(res => {
-      console.log(res.data);
-    });
   }
 };
 </script>
@@ -94,5 +101,6 @@ export default {
   width: 300px;
   height: 300px;
   margin-top: 10%;
+  text-align: center;
 }
 </style>
