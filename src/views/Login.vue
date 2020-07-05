@@ -86,7 +86,7 @@ export default {
       userApi.signUp(params).then(res => {
         if (res.data.code == 200) {
           this.GLOBAL.userStatus = true;
-          this.GLOBAL.userId = res.data.userId;
+          this.GLOBAL.userId = res.data.data.id;
           this.$router.push({ path: "/" });
         } else {
           this.$Message.error(res.msg);

@@ -28,7 +28,7 @@
             </Select>
           </Col>
           <Col span="6" style="padding-right:10px">
-            <Button type="primary">查询</Button>
+            <Button type="primary" @click="query">查询</Button>
           </Col>
         </Row>
         <Button type="primary">写博客</Button>
@@ -148,19 +148,21 @@ export default {
   methods: {
     handleUpload(file) {
       this.file = file;
-      this.uploadData = { UserInfoId: 1 };
+      this.uploadData = { UserInfoId: this.GLOBAL.userId };
       return false;
     },
     ok() {
-      this.$set(this.$refs.upload.data, "UserInfoId", 1);
       this.$refs.upload.post(this.file);
     },
-    cancel() {}
+    cancel() {},
+    query() {
+      blogApi.getAll().then(res => {
+        this.tableData = res.data;
+      });
+    }
   },
   mounted() {
-    blogApi.getAll().then(res => {
-      this.tableData = res.data;
-    });
+    this.query();
   }
 };
 </script>

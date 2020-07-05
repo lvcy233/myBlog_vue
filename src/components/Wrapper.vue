@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="leftDiv">
-      <a href="">首页</a>
+      <a href="/">首页</a>
       <a href="">关注</a>
     </div>
     <div class="rightDiv">
