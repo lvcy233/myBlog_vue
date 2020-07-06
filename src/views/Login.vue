@@ -7,40 +7,44 @@
             icon="md-person"
             v-model="signUpUsername"
             placeholder="用户名"
-            style="width: 200px"
           />
           <Input
+            class="marginTop10"
             icon="md-key"
             type="password"
             v-model="signUpPassword"
             placeholder="密码"
-            style="width: 200px"
           />
-          <Button type="primary" shape="circle" long @click="signUp"
+          <Button
+            type="primary"
+            shape="circle"
+            long
+            @click="signUp"
+            class="marginTop10"
             >登录</Button
           >
         </TabPane>
         <TabPane label="注册" name="name2">
+          <Input icon="ios-happy" v-model="name" placeholder="昵称" />
           <Input
-            icon="ios-happy"
-            v-model="name"
-            placeholder="昵称"
-            style="width: 200px"
-          />
-          <Input
+            class="marginTop10"
             icon="md-person"
             v-model="signInUsername"
             placeholder="用户名"
-            style="width: 200px"
           />
           <Input
+            class="marginTop10"
             icon="md-key"
             type="password"
             v-model="signInPassword"
             placeholder="密码"
-            style="width: 200px"
           />
-          <Button type="primary" shape="circle" long @click="signIn"
+          <Button
+            type="primary"
+            shape="circle"
+            long
+            @click="signIn"
+            class="marginTop10"
             >注册</Button
           >
         </TabPane>

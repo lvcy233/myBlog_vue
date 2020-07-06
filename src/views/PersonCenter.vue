@@ -5,10 +5,15 @@
       <Card class="homeContentCard top70">
         <Row>
           <Col span="6" style="padding-right:10px">
-            <Input v-model="title" placeholder="default size" />
+            <Input v-model="title" placeholder="请输入文章名" />
           </Col>
           <Col span="6" style="padding-right:10px">
-            <Select v-model="categories" filterable allow-create>
+            <Select
+              v-model="categories"
+              filterable
+              allow-create
+              placeholder="请选择分类"
+            >
               <Option
                 v-for="item in cityList"
                 :value="item.value"
@@ -18,7 +23,12 @@
             </Select>
           </Col>
           <Col span="6" style="padding-right:10px">
-            <Select v-model="tags" filterable allow-create>
+            <Select
+              v-model="tags"
+              filterable
+              allow-create
+              placeholder="请选择标签"
+            >
               <Option
                 v-for="item in cityList"
                 :value="item.value"
@@ -31,9 +41,11 @@
             <Button type="primary" @click="query">查询</Button>
           </Col>
         </Row>
-        <Button type="primary">写博客</Button>
-        <Button type="primary" @click="uploadModal = true">上传博客</Button>
-        <Table border :columns="columns" :data="tableData">
+        <Button type="text" class="marginTop10">写博客</Button>
+        <Button type="text" class="marginTop10" @click="uploadModal = true"
+          >上传博客</Button
+        >
+        <Table border :columns="columns" :data="tableData" class="marginTop10">
           <template slot-scope="{ row }" slot="name">
             <strong>{{ row.name }}</strong>
           </template>
@@ -58,6 +70,22 @@
       @on-ok="ok"
       @on-cancel="cancel"
     >
+      <Select v-model="tags" filterable allow-create class="marginTop10">
+        <Option
+          v-for="item in cityList"
+          :value="item.value"
+          :key="item.value"
+          >{{ item.label }}</Option
+        >
+      </Select>
+      <Select v-model="tags" filterable allow-create class="marginTop10">
+        <Option
+          v-for="item in cityList"
+          :value="item.value"
+          :key="item.value"
+          >{{ item.label }}</Option
+        >
+      </Select>
       <Upload
         ref="upload"
         :data="uploadData"
