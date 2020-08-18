@@ -3,11 +3,7 @@
     <Card class="login_card center">
       <Tabs value="name1">
         <TabPane label="登录" name="name1">
-          <Input
-            icon="md-person"
-            v-model="signUpUsername"
-            placeholder="用户名"
-          />
+          <Input icon="md-person" v-model="signUpUsername" placeholder="用户名" />
           <Input
             class="marginTop10"
             icon="md-key"
@@ -15,23 +11,11 @@
             v-model="signUpPassword"
             placeholder="密码"
           />
-          <Button
-            type="primary"
-            shape="circle"
-            long
-            @click="signUp"
-            class="marginTop10"
-            >登录</Button
-          >
+          <Button type="primary" shape="circle" long @click="signUp" class="marginTop10">登录</Button>
         </TabPane>
         <TabPane label="注册" name="name2">
           <Input icon="ios-happy" v-model="name" placeholder="昵称" />
-          <Input
-            class="marginTop10"
-            icon="md-person"
-            v-model="signInUsername"
-            placeholder="用户名"
-          />
+          <Input class="marginTop10" icon="md-person" v-model="signInUsername" placeholder="用户名" />
           <Input
             class="marginTop10"
             icon="md-key"
@@ -39,14 +23,7 @@
             v-model="signInPassword"
             placeholder="密码"
           />
-          <Button
-            type="primary"
-            shape="circle"
-            long
-            @click="signIn"
-            class="marginTop10"
-            >注册</Button
-          >
+          <Button type="primary" shape="circle" long @click="signIn" class="marginTop10">注册</Button>
         </TabPane>
       </Tabs>
     </Card>
@@ -70,9 +47,9 @@ export default {
   methods: {
     signIn() {
       var params = {
-        username: this.signInUsername,
-        password: this.signInPassword,
-        name: this.name
+        "username": this.signInUsername,
+        "password": this.signInPassword,
+        "name": this.name
       };
       userApi.signIn(params).then(res => {
         if (res.data.code == 200) {

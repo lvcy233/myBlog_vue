@@ -70,7 +70,7 @@ module.exports = {
     proxy: {
       "/User": {
         /* 目标代理服务器地址 */
-        target: "http://127.0.0.1:9000/cloud-user",
+        target: "http://127.0.0.1:9000/user",
         /* 允许跨域 */
         changeOrigin: true,
         ws: true,
