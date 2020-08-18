@@ -184,7 +184,7 @@ export default {
     },
     cancel() {},
     query() {
-      blogApi.getAll().then(res => {
+      blogApi.getBlogList().then(res => {
         this.tableData = res.data;
       });
     }

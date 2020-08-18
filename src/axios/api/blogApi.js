@@ -8,8 +8,8 @@ import http from "../http";
 let resquest = "/Blog/blog";
 
 export default {
-  getAll: () => {
-    return http.get(`${resquest}/getAll`, {});
+  getBlogList: () => {
+    return http.get(`${resquest}/getBlogList`, {});
   },
   UploadBlog: params => {
     return http.post(`${resquest}/uploadBlog`, JSON.stringify(params));

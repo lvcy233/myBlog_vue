@@ -54,7 +54,7 @@ export default {
   },
   methods: {},
   mounted() {
-    blogApi.getAll().then(res => {
+    blogApi.getBlogList().then(res => {
       this.content = res.data;
     });
   }
