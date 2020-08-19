@@ -1,7 +1,9 @@
 // 导入axios
 import axios from "axios";
 // 使用iview Message做消息提醒
-import { Message } from "view-design";
+import {
+  Message
+} from "view-design";
 //1. 创建新的axios实例，
 const service = axios.create({
   // 公共接口--这里注意后面会讲
@@ -12,16 +14,22 @@ const service = axios.create({
 // 2.请求拦截器
 service.interceptors.request.use(
   config => {
+    debugger
     //发请求前做的一些处理，数据转化，配置请求头，设置token,设置loading等
     // const token = getCookie('名称');注意使用的时候需要引入cookie方法，推荐js-cookie
+    const token = localStorage.getItem("token");
     config.data = JSON.stringify(config.data);
     config.headers = {
       // "Content-Type": "application/x-www-form-urlencoded"
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     };
-    // if(token){
-    //   config.params = {'token':token}
-    // }
+    if (token && token != "undefined") {
+      // config.params = {'token':token}
+      config.headers = {
+        // "Content-Type": "application/x-www-form-urlencoded"
+        "AUTHORIZE_TOKEN": token
+      };
+    }
     return config;
   },
   error => {
@@ -36,7 +44,6 @@ service.interceptors.response.use(
     return response;
   },
   error => {
-    debugger
     /***** 接收到异常响应的处理开始 *****/
     if (error && error.response) {
       // 1.公共错误处理
